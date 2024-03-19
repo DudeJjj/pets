@@ -33,7 +33,6 @@ const CurrentDogPage = () => {
   const [fullImg, setFullImg] = useState<string[]>()
   const [isLoading, setIsLoading] = useState(true)
   
-  const [isFastRefresh, setIsFastRefresh] = useState(false)
   const [isNotFound, setIsNotFound] = useState(false)
 
   useEffect(() => {
@@ -61,9 +60,6 @@ const CurrentDogPage = () => {
   }
   if (isNotFound === true) {
     return <NotFound />
-  }
-  if (isFastRefresh === true) {
-    return <FastRefresh />
   }
 
   return (
