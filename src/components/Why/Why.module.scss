@@ -1,0 +1,67 @@
+@import '@/styles/base/vars';
+
+.root {
+  margin-top: 110px;
+  padding-bottom: 30px;
+
+  &__content {
+    &__text {
+      padding-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      justify-items: center;
+      column-gap: 15px;
+      row-gap: 15px;
+
+      &__item {
+        max-width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+        border-radius: 16px;
+        transition: all 0.3s ease-in;
+
+        &:hover {
+          -webkit-box-shadow: 3px -1px 5px 1px rgba(0, 0, 0, 0.65);
+          -moz-box-shadow: 3px -1px 5px 1px rgba(0, 0, 0, 0.65);
+          box-shadow: 3px -1px 5px 1px rgba(0, 0, 0, 0.65);
+        }
+
+        &_help {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 7px;
+
+          p {
+            max-width: 320px;
+          }
+        }
+      }
+
+    }
+
+    h3 {
+      font-size: 27px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 1368px) {
+      &__text {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+      } 
+    }
+
+    @media screen and (max-width: 768px) {
+      &__text {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+      } 
+    }
+  }
+}

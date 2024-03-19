@@ -1,0 +1,164 @@
+[
+  {
+    "id": 1,
+    "name": "Αθηνά",
+    "imageSrc": [
+      "/pets/cats/Bazz-1.jpeg",
+      "/pets/cats/Bazz-2.jpeg",
+      "/pets/cats/Bazz-3.jpeg"
+    ],
+    "fullImages": [
+      "/pets/full/cats/Bazz-1.jpg",
+      "/pets/full/cats/Bazz-2.jpg",
+      "/pets/full/cats/Bazz-3.jpg"
+    ],
+    "amount": 330,
+    "totalAmount": 1600,
+    "slug": "Aphina-cat-small-size-needed-help",
+    "characteristics": {
+      "age": "2 έτη 1 μήνας",
+      "size": "μικρό",
+      "passport": "όχι",
+      "neutered": "όχι",
+      "chipped": "ναι",
+      "children": "ακατάλληλο",
+      "description": "Η Αθηνά, μια νεαρή γάτα με 2 χρόνια και 1 μήνα ηλικία, πάσχει από κολπίτιδα. Η αρχή της ασθένειας ήταν δύσκολη για την Αθηνά και τους ιδιοκτήτες της. Μετά από επίσκεψη στον κτηνίατρο και κατάλληλη θεραπεία, η Αθηνά σιγά σιγά άρχισε να ανακτά την υγεία της. Οι ιδιοκτήτες της την φρόντισαν με αγάπη και προσοχή, προσφέροντάς της την απαραίτητη στήριξη κατά τη διάρκεια της ασθένειάς της."
+    }
+  },
+  {
+    "id": 2,
+    "name": "Αρτέμις",
+    "imageSrc": [
+      "/pets/cats/Bowl-1.jpeg",
+      "/pets/cats/Bowl-2.jpeg",
+      "/pets/cats/Bowl-3.jpeg",
+      "/pets/cats/Bowl-4.jpeg"
+    ],
+    "fullImages": [
+      "/pets/full/cats/Bowl-1.jpg",
+      "/pets/full/cats/Bowl-2.jpg",
+      "/pets/full/cats/Bowl-3.jpg",
+      "/pets/full/cats/Bowl-4.jpg"
+    ],
+    "amount": 120,
+    "totalAmount": 2200,
+    "slug": "Artemis-cat-small-size-needed-help",
+    "characteristics": {
+      "age": "1 έτος 6 μήνες",
+      "size": "Μεσαίο",
+      "passport": "όχι",
+      "neutered": "όχι",
+      "chipped": "ναι",
+      "children": "ακατάλληλο",
+      "description": "Η Αρτέμις, μια γάτα με 1 χρόνο και 6 μήνες, πάσχει από αλλεργία. Οι δερματικές προβληματικές περιοχές και το κνησμός της έκαναν τους ιδιοκτήτες της να ανησυχούν. Μετά από διάγνωση και θεραπεία από τον κτηνίατρο, η Αρτέμις άρχισε να βελτιώνεται. Οι ιδιοκτήτες της ακολούθησαν τις συμβουλές του ιατρού και τη φρόντισαν με αγάπη και προσοχή κατά τη διάρκεια της θεραπείας της."
+    }
+  },
+  {
+    "id": 3,
+    "name": "Διόνυσος",
+    "imageSrc": [
+      "/pets/cats/Bullik-1.jpeg",
+      "/pets/cats/Bullik-2.jpeg",
+      "/pets/cats/Bullik-3.jpeg",
+      "/pets/cats/Bullik-4.jpeg"
+    ],
+    "fullImages": [
+      "/pets/full/cats/Bullik-1.jpg",
+      "/pets/full/cats/Bullik-2.jpg",
+      "/pets/full/cats/Bullik-3.jpg",
+      "/pets/full/cats/Bullik-4.jpg"
+    ],
+    "amount": 400,
+    "totalAmount": 1200,
+    "slug": "Dionysos-cat-small-size-needed-help",
+    "characteristics": {
+      "age": "2 χρόνια 3 μήνες",
+      "size": "Μεσαίο",
+      "passport": "ναι",
+      "neutered": "ναι",
+      "chipped": "ναι",
+      "children": "ακατάλληλο",
+      "description": "Ο Διόνυσος, μια γάτα 2 ετών και 3 μηνών, πάσχει από κυστίτιδα. Αρχικά, τα συμπτώματα της ασθένειας προκάλεσαν ανησυχία στους ιδιοκτήτες του. Μετά από θεραπεία και ακολούθηση των οδηγιών του κτηνιάτρου, ο Διόνυσος βελτιώθηκε σημαντικά. Οι ιδιοκτήτες του προσέφεραν τη φροντίδα και την αγάπη που χρειαζόταν κατά τη διάρκεια της ασθένειάς του."
+    }
+  },
+  {
+    "id": 4,
+    "name": "Απόλλων",
+    "imageSrc": [
+      "/pets/cats/Magga-1.jpeg",
+      "/pets/cats/Magga-2.jpeg"
+    ],
+    "fullImages": [
+      "/pets/full/cats/Magga-1.jpg",
+      "/pets/full/cats/Magga-2.jpg"
+    ],
+    "amount": 10,
+    "totalAmount": 2090,
+    "slug": "Apollo-cat-small-size-needed-help",
+    "characteristics": {
+      "age": "3 έτος",
+      "size": "μικρό",
+      "passport": "όχι",
+      "neutered": "ναι",
+      "chipped": "όχι",
+      "children": "ακατάλληλο",
+      "description": "Ο Απόλλων, ένας γάτος 3 ετών, πάσχει από αρθρίτιδα. Ο πόνος και η ακινησία που προκαλεί η ασθένεια αυτή έκαναν τους ιδιοκτήτες του να ανησυχούν. Μετά από ιατρική περίθαλψη και φυσικοθεραπεία, ο Απόλλων βελτιώθηκε σταδιακά. Οι ιδιοκτήτες του του προσέφεραν αγάπη και περίθαλψη κατά τη διάρκεια της θεραπείας του."
+    }
+  },
+  {
+    "id": 5,
+    "name": "Αφροδίτη",
+    "imageSrc": [
+      "/pets/cats/Raul-1.jpeg",
+      "/pets/cats/Raul-2.jpeg",
+      "/pets/cats/Raul-3.jpeg",
+      "/pets/cats/Raul-4.jpeg"
+    ],
+    "fullImages": [
+      "/pets/full/cats/Raul-1.jpg",
+      "/pets/full/cats/Raul-2.jpg",
+      "/pets/full/cats/Raul-3.jpg",
+      "/pets/full/cats/Raul-4.jpg"
+    ],
+    "amount": 99,
+    "totalAmount": 1200,
+    "slug": "Aphrodite-cat-small-size-needed-help",
+    "characteristics": {
+      "age": "4 χρόνια 1 μήνας",
+      "size": "μικρό",
+      "passport": "όχι",
+      "neutered": "όχι",
+      "chipped": "ναι",
+      "children": "ακατάλληλο",
+      "description": "H Αφροδίτη, μια γάτα 4 ετών και 1 μήνα, πάσχει από καρδιομυοπάθεια. Η καρδιακή ανεπάρκεια προκάλεσε ανησυχία στους ιδιοκτήτες της. Μετά από ιατρική περίθαλψη και φαρμακευτική αγωγή, η Αφροδίτη βελτιώθηκε σταδιακά. Οι ιδιοκτήτες της της παρείχαν τη σωστή διατροφή και την αγάπη που χρειαζόταν κατά τη διάρκεια της θεραπείας της."
+    }
+  },
+  {
+    "id": 6,
+    "name": "Περσεφόνη",
+    "imageSrc": [
+      "/pets/cats/Zeus-1.jpeg",
+      "/pets/cats/Zeus-2.jpeg",
+      "/pets/cats/Zeus-3.jpeg",
+      "/pets/cats/Zeus-4.jpeg"
+    ],
+    "fullImages": [
+      "/pets/full/cats/Zeus-1.jpg",
+      "/pets/full/cats/Zeus-2.jpg",
+      "/pets/full/cats/Zeus-3.jpg",
+      "/pets/full/cats/Zeus-4.jpg"
+    ],
+    "amount": 3343,
+    "totalAmount": 312312,
+    "slug": "Persephone-cat-small-size-needed-help",
+    "characteristics": {
+      "age": "1 χρόνια",
+      "size": "μικρό",
+      "passport": "ναι",
+      "neutered": "όχι",
+      "chipped": "ναι",
+      "children": "ακατάλληλο",
+      "description": "H Περσεφόνη, μια γάτα 1 έτους, πάσχει από ψωρίαση. Οι επιφανειακές βλάβες στο δέρμα και ο κνησμός της έκαναν τους ιδιοκτήτες της να ζητήσουν βοήθεια. Μετά από έλεγχο από τον κτηνίατρο, η Περσεφόνη υποβλήθηκε σε αντιική θεραπεία και είδε βελτίωση στην κατάστασή της. Οι ιδιοκτήτες της την περιποιήθηκαν με μεγάλη φροντίδα και αγάπη, βοηθώντας τη να ξεπεράσει την ασθένειά της."
+    }
+  }
+]

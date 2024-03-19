@@ -1,0 +1,29 @@
+@import './base/reset';
+@import './base/vars';
+
+body {
+  background-color: $background-color;
+}
+* {
+  color: $text-color;
+  font-family: $primary-font;
+}
+
+.container {
+  max-width: 1760px;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1440px) {
+    max-width: 1280px;
+  }
+  @media screen and (max-width: 1024px) {
+    max-width: 864px;
+  }
+  @media screen and (max-width: 870px) {
+    max-width: 100%;
+  }
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}

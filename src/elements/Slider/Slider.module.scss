@@ -1,0 +1,92 @@
+@import '@/styles/base/vars';
+
+.images {
+  width: 584px;
+  height: 596px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 16px;
+  overflow: hidden;
+  margin-left: 30px;
+
+
+  @media screen and (max-width: 1360px) {
+    flex-direction: column-reverse;
+    gap: 16px;
+  }
+
+  @media screen and (max-width: 580px) {
+    width: 100%;
+  }
+
+  @media screen and (max-width: 580px) {
+    max-width: 100%;
+  }
+
+  &__left {
+    max-height: 770px;
+    background-color: $background-color;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    justify-content: center;
+    border-radius: 9px;
+    max-width: 310px;
+
+    button {
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+
+    img {
+      max-height: 380px;
+      border-radius: 8px;
+    }
+
+    @media screen and (max-width: 1360px) {
+      flex-direction: row;
+      max-height: 310px;
+    }
+
+    @media screen and (max-width: 560px) {
+      img {
+        padding: 8px;
+        border-radius: 16px;
+      }
+    }
+  }
+
+  &__right {
+    width: 504px;
+    height: 496px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    background-color: $background-color;
+    border-radius: 16px;
+
+    img {
+      height: 490px;
+      border-radius: 16px;
+    }
+
+    @media screen and (max-width: 1360px) {
+      img {
+        height: 346px;
+      }
+    }
+
+    @media screen and (max-width: 590px) {
+      img {
+        height: 310px;
+        width: 310px;
+      }
+    }
+  }
+}

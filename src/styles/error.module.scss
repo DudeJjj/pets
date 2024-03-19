@@ -1,0 +1,43 @@
+@import './base/vars';
+
+.root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    a {
+      width: 230px;
+      height: 54px;
+      background-color: $orange-color;
+      color: $text-color;
+      font-size: 17px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0 8px;
+      border-radius: 7px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        color: $background-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,247 @@
+@import '@/styles/base/vars';
+
+.root {
+  width: 80%;
+  height: 100%;
+  max-width: 660px;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+
+  z-index: 44;
+  background-color: rgba(255, 197, 158, 0.8);
+  border-radius: 16px;
+
+  &__content {
+    min-width: 60%;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+
+    @media screen and (max-width: 768px) {
+      min-width: 90%;
+      max-width: 90%;
+    }
+  
+    &__input {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      gap: 15px;
+
+      .other_amount {
+        text-transform: capitalize;
+        font-weight: 500;
+        font-size: 23px;
+        color: rgba(0, 0, 0, 0.6);
+        transition: all 0.3s ease-in;
+        background-color: $background-color;
+        padding: 8px;
+        border-radius: 16px;
+
+        input {
+          transition: all 0.3s ease-in;
+          caret-color: $orange-color;
+
+          &:focus {
+            transform: scale(1.02);
+          }
+        }
+      }
+
+      .name {
+        text-transform: capitalize;
+        font-weight: 500;
+        font-size: 23px;
+        color: rgba(0, 0, 0, 0.6);
+        transition: all 0.3s ease-in;
+        background-color: $background-color;
+        padding: 8px;
+        border-radius: 16px;
+
+        input {
+          transition: all 0.3s ease-in;
+          caret-color: $orange-color;
+
+          &:focus {
+            transform: scale(1.02);
+          }
+        }
+      }
+
+    }
+
+    &__copy {
+      width: 100%;
+      display: grid;
+      grid-template-rows: repeat(4, 1fr);
+      row-gap: 15px;
+
+      p {
+        font-weight: 500;
+        font-size: 15px;
+        color: $background-color;
+        padding: 8px;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $orange-color;
+        border-radius: 11px;
+        height: 30px;
+        cursor: pointer;
+
+        span {
+          font-weight: 700;
+          color: $background-color;
+        }
+
+        @media screen and (max-width: 560px) {
+          font-size: 13px;
+          overflow: hidden;
+        }
+
+      }
+
+      .background {
+        background-color: $text-color;
+      }
+    }
+
+    &__select {
+
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      row-gap: 15px;
+      column-gap: 27px;
+
+      .inactive {
+        width: 100%;
+        padding: 16px;
+        border-radius: 4px;
+        clip-path: polygon(0% 100%, 0% 0%, 100% 0, 100% 57%, 85% 100%);
+        background-color: $background-color;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        font-weight: 500;
+
+        span {
+          font-weight: 500;
+          position: absolute;
+          top: 6px;
+          left: 2px;
+        }
+      }
+
+      .active {
+        color: $background-color;
+        background-color: $text-color;
+        border-radius: 4px;
+        padding: 16px;
+        position: relative;
+
+        span {
+          font-weight: 700;
+          position: absolute;
+          top: 6px;
+          left: 2px;
+          color: $background-color;
+        }
+
+      }
+    }
+
+  }
+
+  h2 {
+    font-weight: 500;
+    font-size: 24px;
+    font-style: italic;
+    margin-bottom: 17px;
+    text-align: center;
+    max-width: 330px;
+
+    @media screen and (max-width: 560px) {
+      font-size: 19px;
+      margin-bottom: 10px;
+      margin-top: 20px;
+    }
+
+    @media screen and (max-width: 400px) {
+      font-size: 16px;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+  }
+}
+
+
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  z-index: 33;
+  background: rgba(0, 0, 0, 0.4)
+}
+
+.close {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  justify-content: center;
+  align-items: center;
+  font-weight: 300;
+  border-top-right-radius: 16px;
+  background-color: $orange-color;
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    font-weight: 500;
+    color: $orange-color;
+    background-color: $background-color;
+  }
+}
+
+.submit {
+  width: 260px;
+  height: 60px;
+  background-color: $orange-color;
+  border-radius: 16px;
+  color: $text-color;
+  font-weight: 500;
+  transition: all .25s ease-in;
+
+  &:hover {
+    font-weight: 700;
+    color: $background-color;
+    background-color: $orange-color;
+  }
+}
+
+.successPar {
+  text-align: center;
+}
+
+.logo {
+  @media screen and (max-width: 560px) {
+    max-width: 36px;
+    max-height: 36px;
+  }
+}

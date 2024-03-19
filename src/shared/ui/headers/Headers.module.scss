@@ -1,0 +1,27 @@
+@import '@/styles/base/vars';
+
+.root {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .header {
+    font-size: 19px;
+  }
+  .link {
+    font-size: 17px;
+    font-family: $secondary-font;
+    text-transform: capitalize;
+    color: $background-color;
+    transition: all 0.25s ease-in;
+
+    &:hover {
+      color: $text-color;
+    }
+  }
+
+  @media screen and (max-width: 576px) {
+    justify-content: space-around;
+  }
+
+}
