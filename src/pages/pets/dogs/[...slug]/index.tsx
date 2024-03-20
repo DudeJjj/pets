@@ -20,6 +20,7 @@ import Trouble from '@/elements/Trouble'
 import Invoice from '@/elements/Invoice'
 
 import { PetProps } from '@/shared/types/pet'
+import dogs from '@/shared/constants/dogs.json'
 import styles from './Dogs.module.scss'
 
 const nonFoundImage = '/images/non-found.png'
@@ -32,20 +33,24 @@ const CurrentDogPage = () => {
   const [dog, setDog] = useState<PetProps>()
   const [fullImg, setFullImg] = useState<string[]>()
   const [isLoading, setIsLoading] = useState(true)
+  
   const [isNotFound, setIsNotFound] = useState(false)
 
   useEffect(() => {
     const fetchData = async () => {
-      axios.get('/api/getDogs').then((res) => res.data.find((dog: PetProps) => dog.slug === String(router.query.slug) && setDog(dog)) && setFullImg(dog?.fullImages)) 
+      axios.get('/api/getDogs').then((res) => res.data.find((dog: PetProps) => dog.slug === String(router.query.slug) && setDog(dog))) 
       setIsLoading(false)
     }
     fetchData()
   }, [router.query.slug])
   
   useEffect(() => {
+    dogs.find((img: PetProps) => img.slug === String(router.query.slug) && setFullImg(img.fullImages))
+  }, [router.query.slug]) 
+  
+  useEffect(() => {
     facebook()
   }, [])
-  
   const onInvoce = () => {
     dispatch(toggleInvoice())
     document.body.classList.toggle('overflow-hidden')

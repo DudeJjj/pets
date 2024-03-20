@@ -12,16 +12,19 @@ import Footer from '@/components/Footer'
 
 import { PetProps } from '@/shared/types/pet'
 import styles from './Cats.module.scss'
+import SkeletonMini from '@/components/Skeletons/Mini'
 
 const CatsPage = () => {
   const [cats, setCats] = useState<PetProps[]>()
   const [currentPage, setCurrentPage] = useState(1)
   const [slice, setSlice] = useState([0, 4])
+  const [isLoading, setIsLoading] = useState(true)
   const onPageChange = (page: number) => setCurrentPage(page);
  
   useEffect(() => {
     const fetchData = async () => {
       axios.get('/api/getCats').then((res) => setCats(res.data))
+      setIsLoading(false)
     }
     fetchData()
   }, [currentPage])
@@ -44,29 +47,33 @@ const CatsPage = () => {
       <main className={styles.root}>
         <div className="container">
           <section className={styles.root__content}>
-            {cats
-              ?.slice(slice[0], slice[1])
-              .map((cat: PetProps) => (
-                <div key={cat.id}>
-                    <Link href={`/pets/cats/${cat.slug}`}>
-                      <div className={styles.root__content_pet}>
-                        <div className={styles.root__content_pet_img}>
-                          <Image src={cat.imageSrc[0]} width={150} height={90} alt={cat.name} />
-                          <div className={styles.root__content_pet_img_text}>
-                            <h3>{cat.name}</h3>
-                            <p>{cat.characteristics.age}</p>
+            {isLoading ? <SkeletonMini /> : (
+              <>
+                {cats
+                  ?.slice(slice[0], slice[1])
+                  .map((cat: PetProps) => (
+                    <div key={cat.id}>
+                        <Link href={`/pets/cats/${cat.slug}`}>
+                          <div className={styles.root__content_pet}>
+                            <div className={styles.root__content_pet_img}>
+                              <Image src={cat.imageSrc[0]} width={150} height={90} alt={cat.name} />
+                              <div className={styles.root__content_pet_img_text}>
+                                <h3>{cat.name}</h3>
+                                <p>{cat.characteristics.age}</p>
+                              </div>
+                            </div> 
+                            <div className={styles.root__content_pet_info}>
+                              <div className={styles.root__content_pet_info_text}>
+                                <p>{cat.amount} €</p>
+                                <p className={styles.root__content_pet_info_text_total}>{cat.totalAmount} €</p>
+                              </div>
+                            </div> 
                           </div>
-                        </div> 
-                        <div className={styles.root__content_pet_info}>
-                          <div className={styles.root__content_pet_info_text}>
-                            <p>{cat.amount} €</p>
-                            <p className={styles.root__content_pet_info_text_total}>{cat.totalAmount} €</p>
-                          </div>
-                        </div> 
-                      </div>
-                    </Link>
-                </div>
-            ))}
+                        </Link>
+                    </div>
+                ))}
+              </>
+            )}
           </section>
           <div className={styles.pagination}>
             <Pagination 

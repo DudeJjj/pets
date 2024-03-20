@@ -25,7 +25,7 @@ const Hero = () => {
               <div className={styles.root__content__item} key={item.id}>
                 <div className={styles.root__content__item_text}>
                   <h1>{item.header}</h1>
-                  <button onClick={() => console.log('open modal')}>Βοηθήστε μας.</button>
+                  <button>Βοηθήστε μας.</button>
                 </div>
                 <Image src={item.imageSrc} width={500} height={500} alt={item.header}/>
               </div>

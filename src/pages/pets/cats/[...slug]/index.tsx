@@ -20,6 +20,7 @@ import Trouble from '@/elements/Trouble'
 import Invoice from '@/elements/Invoice'
 
 import { PetProps } from '@/shared/types/pet'
+import cats from '@/shared/constants/cats.json'
 import styles from './Cats.module.scss'
 
 const nonFoundImage = '/images/non-found.png'
@@ -42,6 +43,10 @@ const CurrentCatPage = () => {
     }
     fetchData()
   }, [router.query.slug])
+  
+  useEffect(() => {
+    cats.find((img: PetProps) => img.slug === String(router.query.slug) && setFullImg(img.fullImages))
+  }, [router.query.slug]) 
 
   useEffect(() => {
     facebook()

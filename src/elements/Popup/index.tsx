@@ -23,7 +23,6 @@ const WindowPopup: React.FC<WindowPopupProps> = ({ func }) => {
         const response = await getCats(limit, 1);
         setSlug(response.items[0].slug);
         setImageUrl(response.items[0].imageSrc);
-        console.log(response.items[0].imageSrc)
       } catch (error) {
         console.error(error);
       }
