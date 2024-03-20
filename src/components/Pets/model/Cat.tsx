@@ -1,18 +1,28 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 import { PetMiniProps } from '@/shared/types/pet';
 import UIHeader from '@/shared/ui/headers';
-import cats from '@/shared/constants/cats.json';
 import styles from '../Pets.module.scss';
 
 const Cat = () => {
+  const [cats, setCats] = useState<PetMiniProps[]>();
+  useEffect(() => {
+    const fetchData = async () => {
+      axios.get('/api/getCats').then((res) => setCats(res.data))
+    }
+    fetchData()
+  }, [])
+  
   return (
     <article className={styles.root}>
       <div className="container">
         <UIHeader header="Γάτες" link="/pets/cats" />
         <div className={styles.root__content}>
           {cats
+            ?.slice(0,4)
             .map((cat: PetMiniProps) => (
               <div key={cat.id} className={styles.root__content__card}>
                   <>

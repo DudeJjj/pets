@@ -1,7 +1,9 @@
-import Image from 'next/image'
+import Head from 'next/head'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { Pagination } from 'flowbite-react'
+import axios from 'axios'
 
 import { facebook } from '@/utils/facebook'
 
@@ -9,15 +11,21 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
 import { PetProps } from '@/shared/types/pet'
-import dogs from '@/shared/constants/dogs.json'
 import styles from './Cats.module.scss'
-import Head from 'next/head'
 
 const DogsPage = () => {
+  const [dogs, setDogs] = useState<PetProps[]>()
   const [currentPage, setCurrentPage] = useState(1)
   const [slice, setSlice] = useState([0, 4])
   const onPageChange = (page: number) => setCurrentPage(page);
   
+  useEffect(() => {
+    const fetchData = async () => {
+      axios.get('/api/getDogs').then((res) => setDogs(res.data))
+    }
+    fetchData()
+  }, [currentPage])
+
   useEffect(() => setSlice([currentPage * 4 - 4, currentPage * 4]), [currentPage])
   useEffect(() => facebook(), [])
   
@@ -38,7 +46,7 @@ const DogsPage = () => {
         <div className="container">
           <section className={styles.root__content}>
             {dogs
-              .slice(slice[0], slice[1])
+              ?.slice(slice[0], slice[1])
               .map((dog: PetProps) => (
               <div key={dog.id}>
                   <Link href={`/pets/dogs/${dog.slug}`}>

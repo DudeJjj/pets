@@ -36,7 +36,6 @@ const PostPage = () => {
 
   const submitButton = async (e: React.FormEvent) => {
     e.preventDefault();
-    sendMessage(JSON.stringify({ pet, select, selectedId, newAmount }))
     const response = await fetch('/api/post', {
       method: 'POST',
       headers: {

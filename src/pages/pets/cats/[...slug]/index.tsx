@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
 
 import { toggleInvoice } from '@/redux/slices/invoice'
 import { RootState } from '@/redux/store'
@@ -19,7 +20,6 @@ import Trouble from '@/elements/Trouble'
 import Invoice from '@/elements/Invoice'
 
 import { PetProps } from '@/shared/types/pet'
-import cats from '@/shared/constants/cats.json'
 import styles from './Cats.module.scss'
 
 const nonFoundImage = '/images/non-found.png'
@@ -34,15 +34,18 @@ const CurrentCatPage = () => {
   const [isLoading, setIsLoading] = useState(true)
   
   const [isNotFound, setIsNotFound] = useState(false)
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      axios.get('/api/getCats').then((res) => res.data.find((cat: PetProps) => cat.slug === String(router.query.slug) && setCat(cat)) && setFullImg(cat?.fullImages)) 
+      setIsLoading(false)
+    }
+    fetchData()
+  }, [router.query.slug])
 
   useEffect(() => {
     facebook()
   }, [])
-  
-  useEffect(() => {
-    cats.find((cat) => cat.slug === String(router.query.slug) && setCat(cat)) && setFullImg(cat?.fullImages)
-    setIsLoading(false)
-  }, [router.query.slug])
   
   const onInvoce = () => {
     dispatch(toggleInvoice())

@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
 
 import { RootState } from '@/redux/store'
 import { toggleInvoice } from '@/redux/slices/invoice'
@@ -19,7 +20,6 @@ import Trouble from '@/elements/Trouble'
 import Invoice from '@/elements/Invoice'
 
 import { PetProps } from '@/shared/types/pet'
-import dogs from '@/shared/constants/dogs.json'
 import styles from './Dogs.module.scss'
 
 const nonFoundImage = '/images/non-found.png'
@@ -32,18 +32,20 @@ const CurrentDogPage = () => {
   const [dog, setDog] = useState<PetProps>()
   const [fullImg, setFullImg] = useState<string[]>()
   const [isLoading, setIsLoading] = useState(true)
-  
   const [isNotFound, setIsNotFound] = useState(false)
 
+  useEffect(() => {
+    const fetchData = async () => {
+      axios.get('/api/getDogs').then((res) => res.data.find((dog: PetProps) => dog.slug === String(router.query.slug) && setDog(dog)) && setFullImg(dog?.fullImages)) 
+      setIsLoading(false)
+    }
+    fetchData()
+  }, [router.query.slug])
+  
   useEffect(() => {
     facebook()
   }, [])
   
-  useEffect(() => {
-    dogs.find((dog) => dog.slug === String(router.query.slug) && setDog(dog)) && setFullImg(dog?.fullImages)
-    setIsLoading(false)
-  }, [router.query.slug])
-
   const onInvoce = () => {
     dispatch(toggleInvoice())
     document.body.classList.toggle('overflow-hidden')
@@ -53,7 +55,7 @@ const CurrentDogPage = () => {
     if (dog === undefined) {
       setIsNotFound(true)
     }
-  }, 500)
+  }, 1000)
   
   if (isInvoice) {
     return <Invoice petId={dog?.id || 0} petType='dogs' petAmount={dog?.amount || 0} />
