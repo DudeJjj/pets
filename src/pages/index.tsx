@@ -8,7 +8,6 @@ import Help from "@/components/Help";
 import Why from "@/components/Why";
 import Footer from "@/components/Footer";
 import WindowPopup from "@/elements/Popup";
-import { facebook } from "@/utils/facebook";
 
 const Home = () => {
   const [windowIsOpen, setWindowIsOpen] = useState(false);
@@ -16,10 +15,6 @@ const Home = () => {
     setTimeout(() => setWindowIsOpen(true), 100000)
   }, [])
   
-  useEffect(() => {
-    facebook()
-  }, [])
-
   return (
     <>
       <Head>

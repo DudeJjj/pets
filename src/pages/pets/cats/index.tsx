@@ -29,7 +29,6 @@ const CatsPage = () => {
     fetchData()
   }, [currentPage])
   useEffect(() => setSlice([currentPage * 4 - 4, currentPage * 4]), [currentPage])
-  useEffect(() => facebook(), [])
 
   return (
     <>

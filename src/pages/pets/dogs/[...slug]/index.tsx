@@ -6,9 +6,7 @@ import axios from 'axios'
 
 import { RootState } from '@/redux/store'
 import { toggleInvoice } from '@/redux/slices/invoice'
-import { facebook } from '@/utils/facebook'
 import useTimeout from '@/hooks/timeout'
-
 import NotFound from '@/pages/404'
 
 import Header from '@/components/Header'
@@ -48,9 +46,6 @@ const CurrentDogPage = () => {
     dogs.find((img: PetProps) => img.slug === String(router.query.slug) && setFullImg(img.fullImages))
   }, [router.query.slug]) 
   
-  useEffect(() => {
-    facebook()
-  }, [])
   const onInvoce = () => {
     dispatch(toggleInvoice())
     document.body.classList.toggle('overflow-hidden')

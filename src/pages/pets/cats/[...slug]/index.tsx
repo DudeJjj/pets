@@ -7,7 +7,6 @@ import axios from 'axios'
 import { toggleInvoice } from '@/redux/slices/invoice'
 import { RootState } from '@/redux/store'
 import useTimeout from '@/hooks/timeout'
-import { facebook } from '@/utils/facebook'
 
 import NotFound from '@/pages/404'
 
@@ -47,10 +46,6 @@ const CurrentCatPage = () => {
   useEffect(() => {
     cats.find((img: PetProps) => img.slug === String(router.query.slug) && setFullImg(img.fullImages))
   }, [router.query.slug]) 
-
-  useEffect(() => {
-    facebook()
-  }, [])
   
   const onInvoce = () => {
     dispatch(toggleInvoice())
@@ -61,7 +56,7 @@ const CurrentCatPage = () => {
     if (cat === undefined) {
       setIsNotFound(true)
     }
-  }, 500)
+  }, 1500)
   
   if (isInvoice) {
     return <Invoice petId={cat?.id || 0} petType='cats' petAmount={cat?.amount || 0} />

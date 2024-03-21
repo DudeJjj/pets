@@ -8,7 +8,7 @@ import axios from 'axios';
 import { sendMessage } from '@/shared/api/telegram';
 import styles from './Invoice.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
-import { facebookPay } from '@/utils/facebook';
+import { facebookLead } from '@/utils/facebook';
 
 interface InvoiceProps {
   petId: number;
@@ -25,14 +25,12 @@ const Invoice: React.FC<InvoiceProps> = ({ petType, petAmount, petId }) => {
   const [amount, setAmount] = useState(30);
   const [name, setName] = useState("Ανώνυμος");
   
-  useEffect(() => {
-    facebookPay('track', 'Lead')
-  }, [])
-
   const closeMenu = () => {
     dispatch(toggleInvoice());
     document.body.classList.remove('overflow-hidden');
   }
+  
+  useEffect(() => facebookLead(), [])
 
   const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     try {
