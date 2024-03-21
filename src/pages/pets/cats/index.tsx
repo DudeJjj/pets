@@ -5,8 +5,6 @@ import { useState, useEffect } from 'react'
 import { Pagination } from 'flowbite-react'
 import axios from 'axios'
 
-import { facebook } from '@/utils/facebook'
-
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
