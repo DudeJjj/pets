@@ -114,6 +114,7 @@ const Invoice: React.FC<InvoiceProps> = ({ petType, petAmount, petId }) => {
                   <input
                     value={amount} onChange={(e) => setAmount(Number(e.target.value))} type="number"
                     id="amount" required hidden={isActive !== 1} onClick={() => setActive(1)}
+                    placeholder="30"
                   />
                 </label>
                 <label htmlFor="name" className={styles.name}>
@@ -121,6 +122,7 @@ const Invoice: React.FC<InvoiceProps> = ({ petType, petAmount, petId }) => {
                   <input
                     value={name} onChange={(e) => setName(e.target.value)} type="text"
                     id="name" required hidden={isActive !== 2} onClick={() => setActive(2)}
+                    placeholder="Ανώνυμος"
                   />
                 </label>
               </div>

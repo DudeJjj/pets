@@ -32,7 +32,7 @@
       min-width: 90%;
       max-width: 90%;
     }
-  
+
     &__input {
       display: flex;
       justify-content: space-around;
@@ -53,8 +53,13 @@
           transition: all 0.3s ease-in;
           caret-color: $orange-color;
 
+          &:placeholder {
+            padding-left: 8px;
+          }
+
           &:focus {
             transform: scale(1.02);
+            padding-left: 8px;
           }
         }
       }
@@ -73,8 +78,13 @@
           transition: all 0.3s ease-in;
           caret-color: $orange-color;
 
+          &:placeholder {
+            padding-left: 8px;
+          }
+
           &:focus {
             transform: scale(1.02);
+            padding-left: 8px;
           }
         }
       }
