@@ -9,6 +9,8 @@ import { sendMessage } from '@/shared/api/telegram';
 import styles from './Invoice.module.scss';
 import 'react-toastify/dist/ReactToastify.css';
 import { facebookLead } from '@/utils/facebook';
+import { ErrorNotification } from '@/shared/ui/toast/error';
+import { SuccessNotification } from '@/shared/ui/toast/succes';
 
 interface InvoiceProps {
   petId: number;
@@ -17,43 +19,40 @@ interface InvoiceProps {
 }
 const random = Math.random() * (999_999 - 100_000) + 100_000;
 const id = Math.round(random)
+const select = 'amount'
 
 const Invoice: React.FC<InvoiceProps> = ({ petType, petAmount, petId }) => {
   const dispatch = useDispatch();
   const [currentStep, setCurrentStep] = useState(1);
   const [isActive, setActive] = useState(0);
   const [amount, setAmount] = useState(30);
-  const [name, setName] = useState("Ανώνυμος");
-  
+  const [name, setName] = useState("");
+
   const closeMenu = () => {
     dispatch(toggleInvoice());
     document.body.classList.remove('overflow-hidden');
   }
-  
+
   useEffect(() => facebookLead(), [])
 
   const handleSubmit = async (e: React.FormEvent): Promise<void> => {
-    try {
-      e.preventDefault();
-      const message = `New Invoce: {amount: ${amount} EUR, id: ${id}, Name: ${name}}`;
-      await sendMessage(message);
-      if (amount < 30) {
-        toast.error(" Ελάχιστο ποσό κατάθεσης: 30 EUR ", {
-          position: "top-center",
-          autoClose: 2500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "colored",
-          transition: Bounce,
-        })
+    e.preventDefault()
+    if (name === "") {
+      ErrorNotification("Παρακαλώ εισάγετε το όνομά σας")
+    }
+    else {
+      try {
+        e.preventDefault();
+        const message = `New Invoce: {amount: ${amount} EUR, id: ${id}, Name: ${name}}`;
+        await sendMessage(message);
+        if (amount < 30) {
+          ErrorNotification(" Ελάχιστο ποσό κατάθεσης: 30 EUR ")
+        }
+        setCurrentStep(2);
+      } catch (err) {
+        alert('Something went wrong. Please try again later.');
+        console.log(err)
       }
-      setCurrentStep(2);
-    } catch (err) {
-      alert('Something went wrong. Please try again later.');
-      console.log(err)
     }
   }
 
@@ -63,13 +62,20 @@ const Invoice: React.FC<InvoiceProps> = ({ petType, petAmount, petId }) => {
       const message = `New Transaction: {amount: ${amount} EUR, id: ${id}, Name: ${name}}`;
       await sendMessage(message);
       setCurrentStep(3);
-      axios({
-        method: "PATCH",
-        url: `https://872d9ebf615ee887.mokky.dev/${petType}/${petId}`,
-        data: {
-          amount: petAmount + amount,
-        }
-      })
+      const newAmount = petAmount + amount
+      const response = await fetch('/api/post', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ pet: petType, select, selectedId: petId, newAmount }),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data);
+      } else {
+        console.error('Failed', response.status, response.statusText);
+      }
     } catch (err) {
       alert('Something went wrong. Please try again later.');
       console.log(err)
@@ -78,21 +84,12 @@ const Invoice: React.FC<InvoiceProps> = ({ petType, petAmount, petId }) => {
 
   const copyClipboard = (message: string): void => {
     navigator.clipboard.writeText(message);
-    toast.success("Successfully copied to clipboard!", {
-      position: "top-center",
-      autoClose: 2500,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-      transition: Bounce,
-    })
+    SuccessNotification("Επιτυχής αντιγραφή στο πρόχειρο!")
   }
 
   return (
     <>
+      <ToastContainer style={{ position: 'absolute', top: '10px', right: '50%' }} />
       <div className={styles.overlay} onClick={closeMenu}></div>
       {
         currentStep === 1 ? (
@@ -118,12 +115,13 @@ const Invoice: React.FC<InvoiceProps> = ({ petType, petAmount, petId }) => {
                   />
                 </label>
                 <label htmlFor="name" className={styles.name}>
-                  {isActive !== 2 ? "Το όνομα σου" : null}
-                  <input
-                    value={name} onChange={(e) => setName(e.target.value)} type="text"
-                    id="name" required hidden={isActive !== 2} onClick={() => setActive(2)}
-                    placeholder="Ανώνυμος"
-                  />
+                  {isActive !== 2 ? "Το όνομα σου" : (
+                    <input
+                      value={name} onChange={(e) => setName(e.target.value)} type="text"
+                      id="name" required onClick={() => setActive(2)}
+                      placeholder="Ανώνυμος"
+                    />
+                  )}
                 </label>
               </div>
             </div>
@@ -133,7 +131,6 @@ const Invoice: React.FC<InvoiceProps> = ({ petType, petAmount, petId }) => {
         ) : currentStep === 2 ? (
 
           <form className={styles.root} onSubmit={handleTransaction}>
-            <ToastContainer style={{ position: 'absolute', top: '10px', right: '50%' }} />
             <button onClick={closeMenu} className={styles.close}>X</button>
             <Image src="/logo.svg" alt="logo" width={100} height={100} />
 

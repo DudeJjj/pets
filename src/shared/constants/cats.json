@@ -27,7 +27,7 @@
   },
   {
     "id": 2,
-    "name": "Magga",
+    "name": "Bowl",
     "imageSrc": [
       "/pets/cats/Bowl-1.jpeg",
       "/pets/cats/Bowl-2.jpeg",
@@ -40,9 +40,9 @@
       "/pets/full/cats/Bowl-3.jpg",
       "/pets/full/cats/Bowl-4.jpg"
     ],
-    "amount": 120,
+    "amount": 290,
     "totalAmount": 2200,
-    "slug": "Magga-cat-small-size-needed-help",
+    "slug": "Bowl-cat-small-size-needed-help",
     "characteristics": {
       "age": "1 έτος 6 μήνες",
       "size": "Μεσαίο",
@@ -55,7 +55,7 @@
   },
   {
     "id": 3,
-    "name": "Bowl",
+    "name": "Bullik",
     "imageSrc": [
       "/pets/cats/Bullik-1.jpeg",
       "/pets/cats/Bullik-2.jpeg",
@@ -70,7 +70,7 @@
     ],
     "amount": 400,
     "totalAmount": 1200,
-    "slug": "Bowl-cat-small-size-needed-help",
+    "slug": "Bullik-cat-small-size-needed-help",
     "characteristics": {
       "age": "2 χρόνια 3 μήνες",
       "size": "Μεσαίο",
@@ -83,7 +83,7 @@
   },
   {
     "id": 4,
-    "name": "Buzz",
+    "name": "Magga",
     "imageSrc": [
       "/pets/cats/Magga-1.jpeg",
       "/pets/cats/Magga-2.jpeg"
@@ -94,7 +94,7 @@
     ],
     "amount": 10,
     "totalAmount": 2090,
-    "slug": "Buzz-cat-small-size-needed-help",
+    "slug": "Magga-cat-small-size-needed-help",
     "characteristics": {
       "age": "3 έτος",
       "size": "μικρό",

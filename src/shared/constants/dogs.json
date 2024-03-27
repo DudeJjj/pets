@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Dizzie",
+    "name": "Bell",
     "imageSrc": [
       "/pets/dogs/bell-1.jpeg",
       "/pets/dogs/bell-2.jpeg",
@@ -16,7 +16,7 @@
     ],
     "amount": 0,
     "totalAmount": 1,
-    "slug": "Dizzie-dog-large-needed-help",
+    "slug": "Bell-dog-large-needed-help",
     "characteristics": {
       "age": "1 έτος 7 μήνες",
       "size": "μεγάλο",
@@ -29,7 +29,7 @@
   },
   {
     "id": 2,
-    "name": "Bell",
+    "name": "Dizzie",
     "imageSrc": [
       "/pets/dogs/dizzie-1.jpeg",
       "/pets/dogs/dizzie-2.jpeg",
@@ -42,7 +42,7 @@
     ],
     "amount": 0,
     "totalAmount": 3300,
-    "slug": "Bell-dog-large-needed-help",
+    "slug": "Dizzie-dog-large-needed-help",
     "characteristics": {
       "age": "2 χρόνια 1 μήνας",
       "size": "μεγάλο",
