@@ -2,8 +2,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleInvoice } from '@/redux/slices/invoice';
-import { Bounce, ToastContainer, toast } from 'react-toastify';
-import axios from 'axios';
+import { ToastContainer } from 'react-toastify';
 
 import { sendMessage } from '@/shared/api/telegram';
 import styles from './Invoice.module.scss';
@@ -24,7 +23,6 @@ const select = 'amount'
 const Invoice: React.FC<InvoiceProps> = ({ petType, petAmount, petId }) => {
   const dispatch = useDispatch();
   const [currentStep, setCurrentStep] = useState(1);
-  const [isActive, setActive] = useState(0);
   const [amount, setAmount] = useState(30);
   const [name, setName] = useState("");
 
@@ -39,15 +37,14 @@ const Invoice: React.FC<InvoiceProps> = ({ petType, petAmount, petId }) => {
     e.preventDefault()
     if (name === "") {
       ErrorNotification("Παρακαλώ εισάγετε το όνομά σας")
+    } else if (amount < 30) {
+      ErrorNotification(" Ελάχιστο ποσό κατάθεσης: 30 EUR ")
     }
     else {
       try {
         e.preventDefault();
         const message = `New Invoce: {amount: ${amount} EUR, id: ${id}, Name: ${name}}`;
         await sendMessage(message);
-        if (amount < 30) {
-          ErrorNotification(" Ελάχιστο ποσό κατάθεσης: 30 EUR ")
-        }
         setCurrentStep(2);
       } catch (err) {
         alert('Something went wrong. Please try again later.');
@@ -107,21 +104,16 @@ const Invoice: React.FC<InvoiceProps> = ({ petType, petAmount, petId }) => {
               </div>
               <div className={styles.root__content__input}>
                 <label htmlFor="amount" className={styles.other_amount}>
-                  {isActive !== 1 ? "άλλο ποσό" : null}
                   <input
-                    value={amount} onChange={(e) => setAmount(Number(e.target.value))} type="number"
-                    id="amount" required hidden={isActive !== 1} onClick={() => setActive(1)}
-                    placeholder="30"
+                    value={amount} onChange={(e) => setAmount(Number(e.target.value))} type="text"
+                    id="amount" placeholder="άλλο ποσό"
                   />
                 </label>
                 <label htmlFor="name" className={styles.name}>
-                  {isActive !== 2 ? "Το όνομα σου" : (
-                    <input
-                      value={name} onChange={(e) => setName(e.target.value)} type="text"
-                      id="name" required onClick={() => setActive(2)}
-                      placeholder="Ανώνυμος"
-                    />
-                  )}
+                  <input
+                    value={name} onChange={(e) => setName(e.target.value)} type="text"
+                    id="name" placeholder="Ανώνυμος"
+                  />
                 </label>
               </div>
             </div>
